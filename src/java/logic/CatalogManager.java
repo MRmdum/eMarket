@@ -42,8 +42,13 @@ public class CatalogManager implements Serializable {
     }
     
     // Méthode pour ajouter un produit au catalogue
-    public void addProduct(Integer id, String name, Double price) {
+    public String addProduct() {
+        return "toWelcome";
+    }
+    
+    public String addProduct(Integer id, String name, Double price) {
         this.catalog.add(new Product(id,name,price));
+        return "toWelcome";
     }
     
     // Méthode pour supprimer un produit du catalogue
