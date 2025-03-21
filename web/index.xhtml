@@ -7,10 +7,12 @@
     <title>eMarket - Accueil</title>
     </h:head>
     <h:body>
-        <h1>Accueil</h1>
-        <p>Bienvenue sur l'application de commande en ligne eMarket.</p>
-        <p>N'hesitez pas a visiter 
-            <a href="http://www.centralesupelec.fr" target="_blank"> le site de CentraleSupelec</a>, 
-        notre partenaire.</p>
+        <h:outputText value="Accueil" styleClass="title"/>
+        <br/>
+        <h:outputText value="Bienvenue sur l'application de commande en ligne eMarket." styleClass="subtitle"/>
+        <br/>
+        <h:outputText value="N'hesitez pas a visiter " /> 
+            <h:outputLink value="http://www.centralesupelec.fr">le site de CentraleSupelec</h:outputLink>
+        <h:outputText value=" notre partenaire."/>
     </h:body>
 </html>
