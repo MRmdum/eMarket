@@ -24,6 +24,7 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-facesconfig_4_0.xsd">
 
+    <!-- Navigation rule for index.xhtml -->
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
@@ -34,11 +35,19 @@
             <from-outcome>case2</from-outcome>
             <to-view-id>/catalog.xhtml</to-view-id>
         </navigation-case>
+    </navigation-rule>
+
+    <!-- Navigation rule for shoppingCart.xhtml -->
+    <navigation-rule>
         <from-view-id>/shoppingCart.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>case3</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
+    </navigation-rule>
+
+    <!-- Navigation rule for catalog.xhtml -->
+    <navigation-rule>
         <from-view-id>/catalog.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>case4</from-outcome>
