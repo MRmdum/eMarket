@@ -17,14 +17,23 @@
             <h:outputLink value="http://www.centralesupelec.fr">le site de CentraleSupelec</h:outputLink>
             <h:outputText value=" notre partenaire."/>
             <h:form>
-                <h:commandLink action="case1">
-                    <h:outputText value="Lien vers le panier"/>
-                </h:commandLink>
-            </h:form>
-            <h:form>
-                <h:commandLink action="case2">
-                    <h:outputText value="Lien vers le catalogue"/>
-                </h:commandLink>
+                <ul>
+                    <li>
+                        <h:commandLink action="toShoppingCart">
+                            <h:outputText value="Lien vers le panier"/>
+                        </h:commandLink>
+                    </li>
+                    <li>
+                        <h:commandLink action="toCatalog">
+                            <h:outputText value="Lien vers le catalogue"/>
+                        </h:commandLink>
+                    </li>
+                    <li>
+                        <h:commandLink action="toForm">
+                            <h:outputText value="Ajouter un nouveau produit au catalogue"/>
+                        </h:commandLink>
+                    </li>
+                </ul>
             </h:form>
         </f:view>
     </h:body>

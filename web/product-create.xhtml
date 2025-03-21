@@ -12,23 +12,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <title>eMarket - Accueil</title>
     </h:head>
     <body>
-        <h:form id="product-create">
-            <h:panelGrid columns="2">
-                <!-- Champ pour l'identifiant du produit -->
-                <h:outputLabel for="productId" value="Identifiant : " />
-                <h:inputText id="productId" value="" />
+        <f:view>
+            <h:form id="product-create">
+                <h:panelGrid columns="1">
+                    <!-- Champ pour l'identifiant du produit -->
+                    <h:outputLabel for="productId" value="Identifiant : " />
+                    <h:inputText id="productId" value="" />
+                    <!-- Champ pour le nom du produit -->
+                    <h:outputLabel for="productName" value="Nom du produit : " />
+                    <h:inputText id="productName" value="" />
 
-                <!-- Champ pour le nom du produit -->
-                <h:outputLabel for="productName" value="Nom du produit : " />
-                <h:inputText id="productName" value="" />
+                    <!-- Champ pour le prix du produit -->
+                    <h:outputLabel for="productPrice" value="Prix : " />
+                    <h:inputText id="productPrice" value="" />
 
-                <!-- Champ pour le prix du produit -->
-                <h:outputLabel for="productPrice" value="Prix : " />
-                <h:inputText id="productPrice" value="" />
-
-                <!-- Bouton de soumission -->
-                <h:commandButton value="Valider" action="" />
-            </h:panelGrid>
-        </h:form>
+                    <!-- Bouton de soumission -->
+                    <h:commandButton value="Valider" action="addProduct"/>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
     </body>
 </html>

@@ -28,12 +28,16 @@
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>case1</from-outcome>
+            <from-outcome>toShoppingCart</from-outcome>
             <to-view-id>/shoppingCart.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>case2</from-outcome>
+            <from-outcome>toCatalog</from-outcome>
             <to-view-id>/catalog.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>toForm</from-outcome>
+            <to-view-id>/product-create.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
@@ -41,7 +45,7 @@
     <navigation-rule>
         <from-view-id>/shoppingCart.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>case3</from-outcome>
+            <from-outcome>toWelcome</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
@@ -50,7 +54,7 @@
     <navigation-rule>
         <from-view-id>/catalog.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>case4</from-outcome>
+            <from-outcome>toWelcome</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
