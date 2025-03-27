@@ -9,15 +9,13 @@
     </h:head>
     <h:body>
         <f:view>
-            <h:outputText value="Accueil" styleClass="title"/>
-            <br/>
-            <h:outputText value="Bienvenue sur l'application de commande en ligne eMarket." styleClass="subtitle"/>
-            <br/>
-            <h:outputText value="N'hesitez pas a visiter " /> 
-            <h:outputLink value="http://www.centralesupelec.fr">le site de CentraleSupelec</h:outputLink>
-            <h:outputText value=" notre partenaire."/>
+            <header>
+                <h1>eMarket</h1>
+            </header>
+            <h:outputText value="Meilleur site de vente de trucs!" styleClass="main-text"/>
+            <h:outputText value="Explorer notre site" styleClass="linklist-title"/>
             <h:form>
-                <ul>
+                <ul class="linklist">
                     <li>
                         <h:commandLink action="toShoppingCart">
                             <h:outputText value="Lien vers le panier"/>

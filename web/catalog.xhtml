@@ -7,17 +7,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-
     <h:head>
+        <link href="my_style.css" rel="stylesheet" type="text/css" />
         <title>eMarket - Catalogue</title>
-        <link rel="stylesheet" type="text/css" href="resources/css/style.css"/>
     </h:head>
 
     <h:body>
         <f:view>
-            <h1>Catalogue des Produits</h1>
-
-            <h:dataTable value="#{catalogManager.catalog}" var="product" border="1" cellpadding="5">
+            <header>
+                <h1>Catalogue des Produits</h1>
+            </header>
+            <h:form>
+                <h:commandLink action="toWelcome">
+                    <h:outputText value="Retour à l'accueil" />
+                </h:commandLink>
+            </h:form>
+            <h:outputText value="Tous nos meilleurs produits!" styleClass="main-text"/>
+            <h:dataTable value="#{catalogManager.catalog}" var="product" cellpadding="5">
                 <h:column>
                     <f:facet name="header">ID</f:facet>
                     <h:outputText value="#{product.id}" />
@@ -42,13 +48,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                     </h:form>
                 </h:column>
             </h:dataTable>
-
-            <br/>
-            <h:form>
-                <h:commandLink action="toWelcome">
-                    <h:outputText value="Lien vers l'acceuil" />
-                </h:commandLink>
-            </h:form>
         </f:view>
     </h:body>
 </html>

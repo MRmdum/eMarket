@@ -1,15 +1,40 @@
+:root {
+    --foreground-color: #101828;
+    --background-color: #d1d5dc;
+}
+
 body {
-	background-color: white;
-	color: black;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
-.title {
-    color: purple;
-    font-family: Arial Black, sans-serif;
-    border-bottom: 1px solid purple;
+
+header {
+    background-color: var(--foreground-color);
+    border-radius: 1em;
+    margin: 0.5em 0;
+    padding: 1em;
+    color: var(--background-color);
 }
-.subtitle {
-	font-size: 11pt;
-	text-align: justify;
+
+header h1 {
+    margin: 0;
+}
+
+.main-text {
+    display: block;
+    margin: 1em 0;
+}
+
+.linklist-title {
+    display: block;
+    font-size: 1.5em;
+    margin: 0.83em 0;
+    font-weight: bold;
+}
+
+ul.linklist {
+    list-style: none;
+    padding-left: 1em;
 }
 

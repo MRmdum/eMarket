@@ -9,25 +9,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <link href="my_style.css" rel="stylesheet" type="text/css" />
-        <title>eMarket - Accueil</title>
+        <title>eMarket - Nouveau produit</title>
     </h:head>
     <body>
         <f:view>
+            <header>
+                <h1>Créer un nouveau produit</h1>
+            </header>
+            <h:form>
+                <h:commandLink action="toWelcome">
+                    <h:outputText value="Retour à l'accueil" />
+                </h:commandLink>
+            </h:form>
             <h:form id="product-create">
                 <h:panelGrid columns="1">
                     <!-- Champ pour l'identifiant du produit -->
                     <h:outputLabel for="productId" value="Identifiant : " />
-                    <h:inputText id="productId" value="" />
+                    <h:inputText id="productId" value="#{catalogManager.id}" type="number" />
                     <!-- Champ pour le nom du produit -->
                     <h:outputLabel for="productName" value="Nom du produit : " />
-                    <h:inputText id="productName" value="" />
-
+                    <h:inputText id="productName" value="#{catalogManager.name}" />
                     <!-- Champ pour le prix du produit -->
                     <h:outputLabel for="productPrice" value="Prix : " />
-                    <h:inputText id="productPrice" value="" />
+                    <h:inputText id="productPrice" value="#{catalogManager.price}" type="fl"/>
 
                     <!-- Bouton de soumission -->
-                    <h:commandButton value="Valider" action="addProduct"/>
+                    <h:commandButton value="Valider" action="#{catalogManager.createProduct()}"/>
                 </h:panelGrid>
             </h:form>
         </f:view>

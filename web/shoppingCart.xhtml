@@ -11,24 +11,35 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <link href="my_style.css" rel="stylesheet" type="text/css" />
         <title>eMarket - Panier</title>
     </h:head>
+
     <h:body>
         <f:view>
-            <h2>Mon Panier</h2>
-            <h:dataTable value="#{shoppingCartBean.cart}" var="cartItem">
-                <h:column>
-                    <f:facet name="header">Name</f:facet>
-                        #{cartItem.name}
-                </h:column>
-                <h:column>
-                    <f:facet name="header">Price</f:facet>
-                    $#{cartItem.price}
-                </h:column>
-            </h:dataTable>
+            <header>
+                <h1>Mon Panier</h1>
+            </header>
             <h:form>
                 <h:commandLink action="toWelcome">
-                    <h:outputText value="Lien vers l'acceuil" />
+                    <h:outputText value="Retour à l'accueil" />
                 </h:commandLink>
             </h:form>
+            <h:dataTable value="#{shoppingCartBean.cart}" var="cartItem" cellpadding="5">
+                <h:column>
+                    <f:facet name="header">Nom</f:facet>
+                    <h:outputText value="#{cartItem.name}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Prix (€)</f:facet>
+                    <h:outputText value="#{cartItem.price}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Actions</f:facet>
+                    <h:form>
+                        <h:commandButton value="Enlever du panier" action="#{shoppingCartManager.removeFromCart}">
+                            <f:setPropertyActionListener value="#{cartItem}" target="#{shoppingCartManager.prodToRemove}" />
+                        </h:commandButton>
+                    </h:form>
+                </h:column>
+            </h:dataTable>
         </f:view>
     </h:body>
 </html>
