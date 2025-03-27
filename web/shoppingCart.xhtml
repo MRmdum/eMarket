@@ -22,24 +22,35 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                     <h:outputText value="Retour à l'accueil" />
                 </h:commandLink>
             </h:form>
-            <h:dataTable value="#{shoppingCartBean.cart}" var="cartItem" cellpadding="5">
+            <h:dataTable value="#{shoppingCartManager.shoppingCart}" var="cartItem" cellpadding="5">
                 <h:column>
-                    <f:facet name="header">Nom</f:facet>
-                    <h:outputText value="#{cartItem.name}" />
+                    <f:facet name="header">Quantité</f:facet>
+                    <h:outputText value="#{cartItem.quantity}" />
                 </h:column>
                 <h:column>
-                    <f:facet name="header">Prix (€)</f:facet>
-                    <h:outputText value="#{cartItem.price}" />
+                    <f:facet name="header">Nom</f:facet>
+                    <h:outputText value="#{cartItem.product.name}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Prix</f:facet>
+                    <h:outputText value="#{cartItem.product.price * cartItem.quantity} EUR" />
                 </h:column>
                 <h:column>
                     <f:facet name="header">Actions</f:facet>
                     <h:form>
-                        <h:commandButton value="Enlever du panier" action="#{shoppingCartManager.removeFromCart}">
-                            <f:setPropertyActionListener value="#{cartItem}" target="#{shoppingCartManager.prodToRemove}" />
+                        <h:commandButton value="+" action="#{shoppingCartManager.addQuantity(1)}">
+                            <f:setPropertyActionListener value="#{cartItem}" target="#{shoppingCartManager.currentItem}" />
+                        </h:commandButton>
+                        <h:commandButton value="-" action="#{shoppingCartManager.addQuantity(-1)}">
+                            <f:setPropertyActionListener value="#{cartItem}" target="#{shoppingCartManager.currentItem}" />
+                        </h:commandButton>
+                        <h:commandButton value="🗑️" action="#{shoppingCartManager.removeFromCart()}">
+                            <f:setPropertyActionListener value="#{cartItem}" target="#{shoppingCartManager.currentItem}" />
                         </h:commandButton>
                     </h:form>
                 </h:column>
             </h:dataTable>
+            <h:outputText value="Total: #{shoppingCartManager.getTotalPrice()} EUR"/>
         </f:view>
     </h:body>
 </html>
