@@ -4,11 +4,13 @@
  */
 package logic;
 
+import facade.ProductFacade;
 import java.io.Serializable;
 import java.util.ArrayList;
 import jakarta.inject.Named;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.annotation.PostConstruct;
+import jakarta.ejb.EJB;
 import model.Product;
 
 @Named
@@ -17,9 +19,11 @@ public class CatalogManager implements Serializable {
 
     private ArrayList<Product> catalog;
 
-    private Integer newId;
     private String newName;
     private Double newPrice;
+
+    @EJB
+    private ProductFacade productFacade;
 
     // Constructeur par défaut
     public CatalogManager() {
@@ -28,10 +32,7 @@ public class CatalogManager implements Serializable {
 
     @PostConstruct
     public void initCatalog() {
-        catalog.add(new Product(10, "Chaussure", 28.62));
-        catalog.add(new Product(11, "Fourchette", 5.2));
-        catalog.add(new Product(12, "Papier", 1.8));
-        catalog.add(new Product(13, "Table", 39.99));
+        catalog.addAll(productFacade.findAll());
     }
 
     // Getter et Setter pour catalog
@@ -41,15 +42,6 @@ public class CatalogManager implements Serializable {
 
     public void setCatalog(ArrayList<Product> catalog) {
         this.catalog = catalog;
-    }
-
-    // Getter et Setter pour id
-    public Integer getId() {
-        return newId;
-    }
-
-    public void setId(Integer id) {
-        this.newId = id;
     }
 
     // Getter et Setter pour name
@@ -71,8 +63,9 @@ public class CatalogManager implements Serializable {
     }
 
     public String createProduct() {
-        this.catalog.add(new Product(this.newId, this.newName, this.newPrice));
-        this.newId = null;
+        Product entity = new Product(catalog.size() + 1, this.newName, this.newPrice);
+        catalog.add(entity);
+        productFacade.create(entity);
         this.newName = null;
         this.newPrice = null;
         return "toCatalog";
